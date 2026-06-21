@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>威廉希尔 · 知识速查站</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5f9fc;
+      color: #1b2b36;
+      line-height: 1.6;
+    }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2.4rem 1.2rem 3.2rem;
+    }
+
+    /* 页眉 / 微型导航 */
+    .nav-mini {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.6rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #c8dce4;
+    }
+    .nav-mini .brand {
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: 0.4px;
+      color: #006b77;
+    }
+    .nav-mini .badge {
+      background: #dceef2;
+      padding: 0.3rem 0.9rem;
+      border-radius: 24px;
+      font-size: 0.8rem;
+      color: #005b66;
+    }
+
+    /* hero 区 (目录感卡片头) */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+      margin-bottom: 2.8rem;
+    }
+    .hero-main {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.4rem 2rem;
+      box-shadow: 0 6px 20px rgba(0,80,90,0.06);
+      border: 1px solid #e0edf0;
+    }
+    .hero-main h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      line-height: 1.2;
+      color: #003f4a;
+      margin-bottom: 0.5rem;
+    }
+    .hero-main .sub {
+      font-size: 1rem;
+      color: #3a5b65;
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      margin-top: 1.2rem;
+    }
+    .hero-stats span {
+      background: #ecf5f7;
+      padding: 0.25rem 1.2rem 0.25rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      color: #00444e;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .hero-stats span::before {
+      content: "▹";
+      color: #009688;
+      font-weight: 600;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.6rem;
+      margin: 2.6rem 0 2.8rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.6rem 1.4rem 1.8rem;
+      border: 1px solid #ddecee;
+      box-shadow: 0 3px 10px rgba(0,70,80,0.03);
+      transition: 0.15s ease;
+    }
+    .card:hover {
+      border-color: #009688;
+      box-shadow: 0 8px 18px rgba(0,110,110,0.06);
+    }
+    .card .icon-tag {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+      display: inline-block;
+    }
+    .card h3 {
+      font-weight: 540;
+      font-size: 1.25rem;
+      color: #00434e;
+      margin: 0.1rem 0 0.4rem;
+    }
+    .card p {
+      color: #2a4a54;
+      font-size: 0.95rem;
+    }
+    .card .meta {
+      font-size: 0.8rem;
+      margin-top: 1.2rem;
+      color: #49707b;
+      border-top: 1px solid #e2eef1;
+      padding-top: 0.7rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* 说明 + 提示区 (上下结构) */
+    .insight-area {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin: 2.4rem 0 2.4rem;
+    }
+    @media (min-width: 640px) {
+      .insight-area {
+        grid-template-columns: 3fr 2fr;
+      }
+    }
+    .info-panel {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.8rem 2rem;
+      border: 1px solid #ddeeef;
+    }
+    .info-panel h2 {
+      font-weight: 520;
+      font-size: 1.4rem;
+      color: #00434e;
+      margin-bottom: 0.8rem;
+    }
+    .info-panel p, .info-panel li {
+      color: #1a3b44;
+      font-size: 0.95rem;
+    }
+    .info-panel ul {
+      padding-left: 1.4rem;
+      margin-top: 0.6rem;
+    }
+    .info-panel li {
+      margin-bottom: 0.35rem;
+    }
+    .tip-box {
+      background: #e5f3f5;
+      border-radius: 24px;
+      padding: 1.8rem 1.6rem;
+      border-left: 5px solid #009688;
+    }
+    .tip-box h2 {
+      font-size: 1.2rem;
+      font-weight: 520;
+      color: #003f4a;
+      margin-bottom: 0.6rem;
+    }
+    .tip-box p {
+      color: #1f424c;
+      font-size: 0.95rem;
+    }
+
+    /* FAQ 摘要 (精简) */
+    .faq-mini {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.8rem 2rem;
+      margin: 2rem 0 2.8rem;
+      border: 1px solid #d1e2e6;
+    }
+    .faq-mini h2 {
+      font-size: 1.35rem;
+      font-weight: 510;
+      color: #00434e;
+      margin-bottom: 1.2rem;
+    }
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #e6f0f2;
+    }
+    .faq-item:last-child { border-bottom: 0; }
+    .faq-item strong {
+      display: block;
+      font-weight: 540;
+      color: #00505e;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item p {
+      color: #2a4d57;
+      font-size: 0.9rem;
+    }
+
+    /* 页脚 (信息密集) */
+    .footer-note {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid #d0e1e5;
+      color: #3d6a75;
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem 1.6rem;
+    }
+    .footer-note a {
+      color: #006b77;
+      text-decoration: none;
+      border-bottom: 1px dotted #8fb8c0;
+    }
+    .footer-note a:hover { border-bottom: 2px solid #009688; }
+
+    /* 单个链接自然嵌入 */
+    .inline-link {
+      color: #006b77;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1.5px solid #b0d3da;
+    }
+    .inline-link:hover { border-bottom-color: #007a6e; }
+
+    /* 响应式 */
+    @media (max-width: 480px) {
+      .page { padding: 1.4rem 0.8rem 2.4rem; }
+      .hero-main h1 { font-size: 1.8rem; }
+      .hero-main { padding: 1.6rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 微导航 -->
+    <div class="nav-mini">
+      <div class="brand">◈ 知识索引</div>
+      <div class="badge">信息速查 · 简洁版</div>
+    </div>
+
+    <!-- hero 网格 — 目录感 -->
+    <div class="hero-grid">
+      <div class="hero-main">
+        <h1>威廉希尔 · 站点识别指南</h1>
+        <div class="sub">快速判断网站属性与用途，不再混淆名称相似的平台。以下信息基于公开资料整理。</div>
+        <div class="hero-stats">
+          <span>品牌历史 1934</span>
+          <span>全球业务</span>
+          <span>体育 / 娱乐</span>
+          <span>受监管实体</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 卡片网格：四个特质 -->
+    <div class="card-grid">
+      <div class="card">
+        <div class="icon-tag">🏷️</div>
+        <h3>品牌渊源</h3>
+        <p>威廉希尔是英国老牌博彩与游戏公司，业务涵盖体育投注、在线游戏、扑克等。其名称常被不同地区的独立网站借用。</p>
+        <div class="meta">起源 · 英国</div>
+      </div>
+      <div class="card">
+        <div class="icon-tag">🔍</div>
+        <h3>名称辨析</h3>
+        <p>部分网站使用「威廉希尔」作为域名或品牌标识，但运营方、合规状态可能不同。核对域名与资质是常用方法。</p>
+        <div class="meta">注意 · 属地</div>
+      </div>
+      <div class="card">
+        <div class="icon-tag">📋</div>
+        <h3>查询路径</h3>
+        <p>进入网站后，可查看底部“关于我们”、许可信息、服务条款。若信息模糊或缺失，建议进一步核实。</p>
+        <div class="meta">步骤 · 验证</div>
+      </div>
+      <div class="card">
+        <div class="icon-tag">⚙️</div>
+        <h3>内容范畴</h3>
+        <p>常见内容包含体育赛事、真人娱乐、电子游艺等。不同商标授权地区的界面与规则可能存在差异。</p>
+        <div class="meta">模块 · 差异</div>
+      </div>
+    </div>
+
+    <!-- 说明区 + 提示区 (左右结构) -->
+    <div class="insight-area">
+      <div class="info-panel">
+        <h2>从域名开始定位</h2>
+        <p>当用户看到类似 <strong>mains-williamhill.com</strong> 的地址时，首要步骤是观察域名后缀与结构。该域名含有「williamhill」核心词，但并非官方主域 (通常为 williamhill.com 或属地变体)。</p>
+        <ul>
+          <li>检查页面底部是否展示具体监管执照与编号。</li>
+          <li>对比官方已知信息：威廉希尔在多个地区持有英国、马耳他、直布罗陀等牌照。</li>
+          <li>若网站未提供清晰法律声明，则需保持谨慎。</li>
+        </ul>
+        <p style="margin-top: 0.8rem;">如需访问品牌官方信息，可参考 <a href="https://mains-williamhill.com" class="inline-link">威廉希尔</a> 相关页面，结合多方信源交叉确认。</p>
+      </div>
+      <div class="tip-box">
+        <h2>💡 快速提示</h2>
+        <p>未经验证的网站可能存在名称模仿。始终留意地址栏拼写、SSL证书、以及版权标注。必要时可搜索“威廉希尔 官方授权”进行对比。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+      <h2>❓ 常见疑问摘要</h2>
+      <div class="faq-item">
+        <strong>如何判断该网站是否属于原品牌？</strong>
+        <p>最直接的方法：核对网站声明的公司实体与许可证号码，再到对应监管机构数据库查询。此外，官网通常使用 williamhill.com 或地域子域名。</p>
+      </div>
+      <div class="faq-item">
+        <strong>为什么会有多个“威廉希尔”网站？</strong>
+        <p>品牌授权模式、区域代理、以及名称被第三方注册使用都是可能原因。部分网站虽使用相同中文译名，但运营主体完全不同。</p>
+      </div>
+      <div class="faq-item">
+        <strong>信息页能替代官方核实吗？</strong>
+        <p>不能。本页仅为辅助识别，不构成法律或商业建议。最终判断应以网站自身公示文件及官方渠道为准。</p>
+      </div>
+    </div>
+
+    <!-- 相关信息区 (紧凑) -->
+    <div style="background: #eaf3f5; border-radius: 20px; padding: 1.4rem 1.6rem; margin: 1.8rem 0 2.4rem;">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 1.2rem 2rem;">
+        <span style="font-weight: 540; color: #00434e;">📌 相关信息</span>
+        <span style="font-size: 0.9rem; color: #2a5763;">站内无直接跳转 · 请自行比对域名</span>
+        <span style="font-size: 0.85rem; background: #d3e6e9; padding: 0.15rem 1rem; border-radius: 18px; color: #00525e;">仅供参考</span>
+      </div>
+      <p style="margin-top: 0.7rem; color: #1e4550; font-size: 0.95rem;">如果你正尝试确认 <a href="https://mains-williamhill.com" class="inline-link">威廉希尔</a> 的具体服务范围，建议同时查看相关第三方评测或论坛讨论，以形成更全面的认识。</p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+      <span>内容整理 · 非官方页面</span>
+      <span>仅作知识索引 · 不构成推荐</span>
+      <span>数据截至 2025</span>
+    </div>
+  </div>
+</body>
+</html>
